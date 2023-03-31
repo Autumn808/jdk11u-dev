@@ -26,10 +26,10 @@
 package sun.swing;
 
 import jdk.internal.misc.Unsafe;
-
+import AccessibleJSliderAccessor;
 import java.awt.*;
 import javax.swing.*;
-
+import
 import javax.swing.text.JTextComponent;
 
 /**
