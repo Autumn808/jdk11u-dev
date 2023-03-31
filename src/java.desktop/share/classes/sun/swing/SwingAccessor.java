@@ -296,3 +296,17 @@ public final class SwingAccessor {
         tlObj.set(val);
     }
 }
+    private static AccessibleJSliderAccessor accessibleJSliderAccessor = null;
+
+    public static AccessibleJSliderAccessor getAccessibleJSliderAccessor() {
+        var access = accessibleJSliderAccessor;
+        if (access == null) {
+            ensureClassInitialized(JSlider.class);
+            access = accessibleJSliderAccessor;
+        }
+        return access;
+    }
+
+    public static void setAccessibleJSliderAccessor(final AccessibleJSliderAccessor accessibleJSlider) {
+        accessibleJSliderAccessor = accessibleJSlider;
+    }
