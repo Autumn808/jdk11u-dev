@@ -65,15 +65,16 @@ class CAccessibility implements PropertyChangeListener {
     static {
         // Need to load the native library for this code.
         java.security.AccessController.doPrivileged(
-            new java.security.PrivilegedAction<Void>() {
-                public Void run() {
-                    System.loadLibrary("awt");
-                    return null;
-                }
-            });
+                new java.security.PrivilegedAction<Void>() {
+                    public Void run() {
+                        System.loadLibrary("awt");
+                        return null;
+                    }
+                });
     }
 
     static CAccessibility sAccessibility;
+
     static synchronized CAccessibility getAccessibility(final String[] roles) {
         if (sAccessibility != null) return sAccessibility;
         sAccessibility = new CAccessibility();
@@ -114,7 +115,9 @@ class CAccessibility implements PropertyChangeListener {
     static <T> T invokeAndWait(final Callable<T> callable, final Component c) {
         try {
             return LWCToolkit.invokeAndWait(callable, c);
-        } catch (final Exception e) { e.printStackTrace(); }
+        } catch (final Exception e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
@@ -122,7 +125,9 @@ class CAccessibility implements PropertyChangeListener {
         T value = null;
         try {
             value = LWCToolkit.invokeAndWait(callable, c);
-        } catch (final Exception e) { e.printStackTrace(); }
+        } catch (final Exception e) {
+            e.printStackTrace();
+        }
 
         return value != null ? value : defValue;
     }
@@ -130,7 +135,9 @@ class CAccessibility implements PropertyChangeListener {
     static void invokeLater(final Runnable runnable, final Component c) {
         try {
             LWCToolkit.invokeLater(runnable, c);
-        } catch (InvocationTargetException e) { e.printStackTrace(); }
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
     }
 
     public static String getAccessibleActionDescription(final AccessibleAction aa, final int index, final Component c) {
@@ -143,17 +150,28 @@ class CAccessibility implements PropertyChangeListener {
         }, c);
     }
 
-    public static void doAccessibleAction(final AccessibleAction aa, final int index, final Component c) {
+
+    public static void doAccessibleAction(final Object aa, final int index, final Component c) {
         // We make this an invokeLater because we don't need a reply.
         if (aa == null) return;
 
-        invokeLater(new Runnable() {
-            public void run() {
-                aa.doAccessibleAction(index);
-            }
-        }, c);
-    }
 
+
+    invokeLater(new Runnable() {
+        public void run () {
+            if (aa instanceof AccessibleAction) {
+                AccessibleAction a = (AccessibleAction) aa;
+                a.doAccessibleAction(index);
+            }
+
+            if (aa instanceof AccessibleJSlider) {
+                AccessibleJSlider a = (AccessibleJSlider) aa;
+                SwingAccessor.getAccessibleAccesible().getAccessibleAction(aa,index);
+            }
+
+        }
+    },c);
+}
     public static Dimension getSize(final AccessibleComponent ac, final Component c) {
         if (ac == null) return null;
 

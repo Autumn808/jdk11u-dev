@@ -281,3 +281,17 @@ public final class SwingAccessor {
         SwingAccessor.keyStrokeAccessor = accessor;
     }
 }
+    private static AccessibleJSliderAccessor accessibleJSliderAccessor = null;
+
+    public static AccessibleJSliderAccessor getAccessibleJSliderAccessor() {
+        var access = accessibleJSliderAccessor;
+        if (access == null) {
+            ensureClassInitialized(JSlider.class);
+            access = accessibleJSliderAccessor;
+        }
+        return access;
+    }
+
+    public static void setAccessibleJSliderAccessor(final AccessibleJSliderAccessor accessibleJSlider) {
+        accessibleJSliderAccessor = accessibleJSlider;
+    }
