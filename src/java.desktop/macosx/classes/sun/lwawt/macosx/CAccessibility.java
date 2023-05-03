@@ -58,6 +58,7 @@ import javax.swing.JTextArea;
 
 import sun.awt.AWTAccessor;
 import sun.lwawt.LWWindowPeer;
+import sun.swing.SwingAccessor;
 
 class CAccessibility implements PropertyChangeListener {
     private static Set<String> ignoredRoles;
@@ -65,12 +66,12 @@ class CAccessibility implements PropertyChangeListener {
     static {
         // Need to load the native library for this code.
         java.security.AccessController.doPrivileged(
-                new java.security.PrivilegedAction<Void>() {
-                    public Void run() {
-                        System.loadLibrary("awt");
-                        return null;
-                    }
-                });
+            new java.security.PrivilegedAction<Void>() {
+                public Void run() {
+                    System.loadLibrary("awt");
+                    return null;
+                }
+            });
     }
 
     static CAccessibility sAccessibility;
@@ -115,8 +116,7 @@ class CAccessibility implements PropertyChangeListener {
     static <T> T invokeAndWait(final Callable<T> callable, final Component c) {
         try {
             return LWCToolkit.invokeAndWait(callable, c);
-        } catch (final Exception e) {
-            e.printStackTrace();
+        } catch (final Exception e) {e.printStackTrace();
         }
         return null;
     }
@@ -125,8 +125,7 @@ class CAccessibility implements PropertyChangeListener {
         T value = null;
         try {
             value = LWCToolkit.invokeAndWait(callable, c);
-        } catch (final Exception e) {
-            e.printStackTrace();
+        } catch (final Exception e) {e.printStackTrace();
         }
 
         return value != null ? value : defValue;
@@ -157,21 +156,16 @@ class CAccessibility implements PropertyChangeListener {
 
 
 
-    invokeLater(new Runnable() {
-        public void run () {
-            if (aa instanceof AccessibleAction) {
-                AccessibleAction a = (AccessibleAction) aa;
-                a.doAccessibleAction(index);
+        invokeLater(new Runnable() {
+            public void run() {
+                if (aa instanceof AccessibleAction) {
+                    AccessibleAction a = (AccessibleAction) aa;
+                    a.doAccessibleAction(index);
+                }
+                SwingAccessor.getAccessibleJSliderAccessor().doAccessibleAction(aa,index);
             }
-
-            if (aa instanceof AccessibleJSlider) {
-                AccessibleJSlider a = (AccessibleJSlider) aa;
-                SwingAccessor.getAccessibleAccesible().getAccessibleAction(aa,index);
-            }
-
-        }
-    },c);
-}
+        }, c);
+    }
     public static Dimension getSize(final AccessibleComponent ac, final Component c) {
         if (ac == null) return null;
 

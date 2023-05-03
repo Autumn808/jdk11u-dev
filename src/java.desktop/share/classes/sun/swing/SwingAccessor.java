@@ -26,10 +26,9 @@
 package sun.swing;
 
 import jdk.internal.misc.Unsafe;
-import AccessibleJSliderAccessor;
+
 import java.awt.*;
 import javax.swing.*;
-import
 import javax.swing.text.JTextComponent;
 
 /**
@@ -124,7 +123,10 @@ public final class SwingAccessor {
 
         KeyStroke create();
     }
+    public interface AccessibleJSliderAccessor{
+        boolean doAccessibleAction (Object aj, int direction);
 
+    }
     /**
      * The javax.swing.JComponent class accessor object.
      */
@@ -295,13 +297,13 @@ public final class SwingAccessor {
     public static void setAllowHTMLObject(Boolean val) {
         tlObj.set(val);
     }
-}
+
     private static AccessibleJSliderAccessor accessibleJSliderAccessor = null;
 
     public static AccessibleJSliderAccessor getAccessibleJSliderAccessor() {
         var access = accessibleJSliderAccessor;
         if (access == null) {
-            ensureClassInitialized(JSlider.class);
+            unsafe.ensureClassInitialized(JSlider.class);
             access = accessibleJSliderAccessor;
         }
         return access;
@@ -310,3 +312,4 @@ public final class SwingAccessor {
     public static void setAccessibleJSliderAccessor(final AccessibleJSliderAccessor accessibleJSlider) {
         accessibleJSliderAccessor = accessibleJSlider;
     }
+}
