@@ -1621,4 +1621,4 @@ public class JSlider extends JComponent implements SwingConstants, Accessible {
         /* ===== End AccessibleAction impl ===== */
 
     } // AccessibleJSlider
-}
+
