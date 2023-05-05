@@ -1411,6 +1411,7 @@ public class JSlider extends JComponent implements SwingConstants, Accessible {
         }
         return accessibleContext;
     }
+
     static {
         SwingAccessor.setAccessibleJSliderAccessor(new SwingAccessor.AccessibleJSliderAccessor() {
             @Override
