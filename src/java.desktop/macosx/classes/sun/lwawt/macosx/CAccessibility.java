@@ -145,7 +145,6 @@ class CAccessibility implements PropertyChangeListener {
         }, c);
     }
 
-
     public static void doAccessibleAction(final Object aa, final int index, final Component c) {
         // We make this an invokeLater because we don't need a reply.
         if (aa == null) return;
