@@ -149,8 +149,6 @@ class CAccessibility implements PropertyChangeListener {
         // We make this an invokeLater because we don't need a reply.
         if (aa == null) return;
 
-
-
         invokeLater(new Runnable() {
             public void run() {
                 if (aa instanceof AccessibleAction) {
