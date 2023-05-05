@@ -349,7 +349,7 @@ public class JSlider extends JComponent implements SwingConstants, Accessible {
     /**
      * Returns the name of the L&amp;F class that renders this component.
      *
-     * @return the string "SliderUI"
+     * @return "SliderUI"
      * @see JComponent#getUIClassID
      * @see UIDefaults#getUI
      */
@@ -499,11 +499,9 @@ public class JSlider extends JComponent implements SwingConstants, Accessible {
 
         if (accessibleContext != null) {
             accessibleContext.firePropertyChange(
-                                                AccessibleContext.ACCESSIBLE_VALUE_PROPERTY,
-                                                (oldModel == null
-                                                 ? null : Integer.valueOf(oldModel.getValue())),
-                                                (newModel == null
-                                                 ? null : Integer.valueOf(newModel.getValue())));
+                    AccessibleContext.ACCESSIBLE_VALUE_PROPERTY,
+                    (oldModel == null ? null : Integer.valueOf(oldModel.getValue())),
+                    (newModel == null ? null : Integer.valueOf(newModel.getValue())));
         }
 
         firePropertyChange("model", oldModel, sliderModel);
