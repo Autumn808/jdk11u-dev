@@ -1469,6 +1469,7 @@ public class JSlider extends JComponent implements SwingConstants, Accessible {
             if (getValueIsAdjusting()) {
                 states.add(AccessibleState.BUSY);
             }
+
             if (getOrientation() == VERTICAL) {
                 states.add(AccessibleState.VERTICAL);
             }
