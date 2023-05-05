@@ -1456,6 +1456,7 @@ public class JSlider extends JComponent implements SwingConstants, Accessible {
 
 
 
+
         /**
          * Get the state set of this object.
          *
