@@ -66,7 +66,7 @@ class CAccessibility implements PropertyChangeListener {
     static {
         // Need to load the native library for this code.
         java.security.AccessController.doPrivileged(
-           new java.security.PrivilegedAction<Void>() {
+            new java.security.PrivilegedAction<Void>() {
                 public Void run() {
                     System.loadLibrary("awt");
                     return null;
