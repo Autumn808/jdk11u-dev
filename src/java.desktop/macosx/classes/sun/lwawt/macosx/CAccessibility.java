@@ -74,7 +74,6 @@ class CAccessibility implements PropertyChangeListener {
             });
     }
 
-
     static CAccessibility sAccessibility;
     static synchronized CAccessibility getAccessibility(final String[] roles) {
         if (sAccessibility != null) return sAccessibility;
