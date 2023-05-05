@@ -551,9 +551,9 @@ public class JSlider extends JComponent implements SwingConstants, Accessible {
 
         if (accessibleContext != null) {
             accessibleContext.firePropertyChange(
-                    AccessibleContext.ACCESSIBLE_VALUE_PROPERTY,
-                    Integer.valueOf(oldValue),
-                    Integer.valueOf(m.getValue()));
+                                                AccessibleContext.ACCESSIBLE_VALUE_PROPERTY,
+                                                Integer.valueOf(oldValue),
+                                                Integer.valueOf(m.getValue()));
         }
     }
 
