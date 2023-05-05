@@ -63,6 +63,7 @@ import sun.swing.SwingAccessor;
 class CAccessibility implements PropertyChangeListener {
     private static Set<String> ignoredRoles;
 
+
     static {
         // Need to load the native library for this code.
         java.security.AccessController.doPrivileged(
