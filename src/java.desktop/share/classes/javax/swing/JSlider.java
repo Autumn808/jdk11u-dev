@@ -557,7 +557,7 @@ public class JSlider extends JComponent implements SwingConstants, Accessible {
         }
     }
 
-}
+
 
     /**
      * Returns the minimum value supported by the slider
