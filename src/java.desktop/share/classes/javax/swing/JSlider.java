@@ -22,7 +22,6 @@
  * or visit www.oracle.com if you need additional information or have any
  * questions.
  */
-
 package javax.swing;
 
 import javax.swing.event.*;
@@ -41,7 +40,6 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 import sun.swing.SwingAccessor;
-
 
 /**
  * A component that lets the user graphically select a value by sliding
