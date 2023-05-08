@@ -24,34 +24,22 @@
  */
 
 package javax.swing;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Font;
-import java.awt.Image;
-import java.beans.BeanProperty;
+
+import javax.swing.event.*;
+import javax.swing.plaf.*;
+import javax.accessibility.*;
+
+import java.io.Serializable;
+import java.io.ObjectOutputStream;
+import java.io.IOException;
+
+import java.awt.*;
+import java.util.*;
 import java.beans.JavaBean;
+import java.beans.BeanProperty;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.io.Serial;
-import java.io.Serializable;
-import java.util.Dictionary;
-import java.util.Enumeration;
-import java.util.Hashtable;
 
-import javax.accessibility.Accessible;
-import javax.accessibility.AccessibleAction;
-import javax.accessibility.AccessibleContext;
-import javax.accessibility.AccessibleRole;
-import javax.accessibility.AccessibleState;
-import javax.accessibility.AccessibleStateSet;
-import javax.accessibility.AccessibleValue;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import javax.swing.event.EventListenerList;
-import javax.swing.plaf.SliderUI;
-import javax.swing.plaf.UIResource;
 import sun.swing.SwingAccessor;
 
 
