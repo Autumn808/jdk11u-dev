@@ -179,7 +179,7 @@ static jobject sAccessibilityClass = NULL;
 
     GET_CACCESSIBILITY_CLASS_RETURN(FALSE);
     DECLARE_STATIC_METHOD_RETURN(jm_doAccessibleAction, sjc_CAccessibility, "doAccessibleAction",
-                                 "(Ljavax/accessibility/AccessibleAction;ILjava/awt/Component;)V", FALSE);
+                                 "(Ljava/lang/Object;ILjava/awt/Component;)V", FALSE);
     (*env)->CallStaticVoidMethod(env, sjc_CAccessibility, jm_doAccessibleAction,
                                  [self axContextWithEnv:(env)], index, fComponent);
     CHECK_EXCEPTION();

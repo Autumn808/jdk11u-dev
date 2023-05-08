@@ -97,7 +97,7 @@
     JNIEnv* env = [ThreadUtilities getJNIEnv];
     DECLARE_CLASS(sjc_CAccessibility, "sun/lwawt/macosx/CAccessibility");
     DECLARE_STATIC_METHOD(jm_doAccessibleAction, sjc_CAccessibility, "doAccessibleAction",
-                    "(Ljavax/accessibility/AccessibleAction;ILjava/awt/Component;)V");
+                    "(Ljava/lang/Object;ILjava/awt/Component;)V");
 
     (*env)->CallStaticVoidMethod(env, sjc_CAccessibility, jm_doAccessibleAction,
              fAccessibleAction, fIndex, fComponent);
