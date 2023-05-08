@@ -1441,14 +1441,14 @@ public class JSlider extends JComponent implements SwingConstants, Accessible {
     protected class AccessibleJSlider extends AccessibleJComponent
     implements AccessibleValue {
 
-         /**
+        /**
          * Get the state set of this object.
          *
          * @return an instance of AccessibleState containing the current state
          * of the object
          * @see AccessibleState
          */
-         public AccessibleStateSet getAccessibleStateSet() {
+        public AccessibleStateSet getAccessibleStateSet() {
             AccessibleStateSet states = super.getAccessibleStateSet();
             if (getValueIsAdjusting()) {
                 states.add(AccessibleState.BUSY);
@@ -1471,7 +1471,7 @@ public class JSlider extends JComponent implements SwingConstants, Accessible {
             return AccessibleRole.SLIDER;
         }
 
-       /**
+        /**
          * Get the AccessibleValue associated with this object.  In the
          * implementation of the Java Accessibility API for this class,
          * return this object, which is responsible for implementing the
@@ -1479,7 +1479,7 @@ public class JSlider extends JComponent implements SwingConstants, Accessible {
          *
          * @return this object
          */
-       public AccessibleValue getAccessibleValue() {
+        public AccessibleValue getAccessibleValue() {
             return this;
         }
 

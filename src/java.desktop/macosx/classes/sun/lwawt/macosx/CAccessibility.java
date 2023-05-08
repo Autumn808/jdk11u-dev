@@ -158,6 +158,7 @@ class CAccessibility implements PropertyChangeListener {
             }
         }, c);
     }
+
     public static Dimension getSize(final AccessibleComponent ac, final Component c) {
         if (ac == null) return null;
 
