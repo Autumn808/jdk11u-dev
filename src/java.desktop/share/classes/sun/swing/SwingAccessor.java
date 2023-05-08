@@ -159,7 +159,7 @@ public final class SwingAccessor {
      * Set an accessor object for the javax.swing.text.JTextComponent class.
      */
     public static void setJTextComponentAccessor(JTextComponentAccessor jtca) {
-                              jtextComponentAccessor = jtca;
+         jtextComponentAccessor = jtca;
     }
 
     /**
