@@ -24,7 +24,6 @@
  */
 
 package javax.swing;
-
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
@@ -35,11 +34,12 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Dictionary;
 import java.util.Enumeration;
 import java.util.Hashtable;
-import sun.swing.SwingAccessor;
+
 import javax.accessibility.Accessible;
 import javax.accessibility.AccessibleAction;
 import javax.accessibility.AccessibleContext;
@@ -52,6 +52,8 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.EventListenerList;
 import javax.swing.plaf.SliderUI;
 import javax.swing.plaf.UIResource;
+import sun.swing.SwingAccessor;
+
 
 /**
  * A component that lets the user graphically select a value by sliding
